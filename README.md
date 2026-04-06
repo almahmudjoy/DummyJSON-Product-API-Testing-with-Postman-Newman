@@ -1,11 +1,21 @@
-# 🚀 DummyJSON Product API Testing with Postman & Newman
-
 <div align="center">
 
-![Postman](https://img.shields.io/badge/Postman-API%20Testing-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![Newman](https://img.shields.io/badge/Newman-CLI%20Execution-3B82F6?style=for-the-badge)
-![HTML Report](https://img.shields.io/badge/Report-htmlextra-8B5CF6?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-All%20Tests%20Passed-22C55E?style=for-the-badge)
+# 🚀 DummyJSON Product API Testing with Postman & Newman
+
+<p align="center">
+  <b>Real API testing project using DummyJSON, Postman, Newman, and HTML reporting</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Postman-API%20Testing-orange?style=for-the-badge&logo=postman" />
+  <img src="https://img.shields.io/badge/Newman-CLI%20Execution-green?style=for-the-badge&logo=postman" />
+  <img src="https://img.shields.io/badge/API-DummyJSON-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <i>A portfolio-ready REST API testing project covering product endpoints, authentication flow, negative scenarios, and performance validation.</i>
+</p>
 
 </div>
 
@@ -13,18 +23,26 @@
 
 ## 📌 Project Overview
 
-This project demonstrates **real API testing** using the **DummyJSON** hosted REST API.  
-It was created as the next step after a **Product API Mock Testing** project built with **JSON Server** on a local machine.
+This project demonstrates **real API testing** using the hosted **DummyJSON API** instead of a local mock server. It was built to practice how QA engineers test production-like REST endpoints using **Postman** for request design and validation, and **Newman** for command-line execution and HTML report generation.
 
-This repository covers:
-
-- ✅ Health check testing
-- ✅ Product API testing
-- ✅ Authentication API testing
-- ✅ Negative testing
-- ✅ Performance testing
+Unlike a basic mock API project, this repository includes:
+- ✅ Real hosted API endpoints
+- ✅ Authentication and token handling
+- ✅ Negative testing scenarios
+- ✅ Performance checks
 - ✅ Newman CLI execution
 - ✅ HTML report generation
+
+---
+
+## 🎯 Project Objectives
+
+- Validate core **product API** functionality
+- Test **authentication flow** using login and refresh token endpoints
+- Practice **environment variables** and dynamic token storage
+- Cover **negative and edge scenarios**
+- Verify **response time and basic performance thresholds**
+- Execute the collection through **Newman CLI**
 
 ---
 
@@ -32,11 +50,11 @@ This repository covers:
 
 | Tool | Purpose |
 |------|---------|
-| **Postman** | API request creation, validation, and collection execution |
-| **DummyJSON** | Real hosted API used for testing |
-| **Newman** | Command-line runner for Postman collections |
-| **newman-reporter-htmlextra** | Advanced HTML report generation |
-| **GitHub** | Project hosting and portfolio showcase |
+| **Postman** | API request creation, testing, validation |
+| **Newman** | Command-line execution of Postman collections |
+| **DummyJSON API** | Hosted API used for testing |
+| **Node.js / npm** | Required for Newman installation |
+| **HTML Reporters** | Visual execution reports |
 
 ---
 
@@ -48,77 +66,80 @@ https://dummyjson.com
 
 ---
 
-## 📂 Project Structure
+## 📂 Collection Structure
 
 ```text
-DummyJSON-Product-API-Testing-Postman/
-│── DummyJSON Product API Testing.postman_collection.json
-│── DummyJSON Env.postman_environment.json
-│── newman-report.html
-│── README.md
-│── DummyJSON_Project_Tracker.xlsx
-│── screenshots/
+DummyJSON Product API Testing
+├── Health Check
+│   └── Test Route
+├── Product APIs
+│   ├── Get all Products
+│   ├── Get single product by ID
+│   ├── Search product
+│   ├── Pagination test
+│   └── Select specific fields
+├── Auth APIs
+│   ├── Login user and save tokens
+│   ├── Get current auth user
+│   └── Refresh token
+├── Negative Testing
+│   ├── Invalid product ID
+│   ├── Invalid login
+│   └── Auth behavior check without bearer token
+└── Performance Testing
+    ├── Delayed products response check
+    └── Normal products response check
 ```
 
 ---
 
 ## 🧪 Modules Tested
 
-### 1) Health Check
-- **Test Route**
-  - `GET /test`
+### 1️⃣ Health Check
+Used to verify that the API is reachable before running functional requests.
 
-### 2) Product APIs
-- **Get all Products**
-  - `GET /products`
-- **Get single product by ID**
-  - `GET /products/{{productId}}`
-- **Search product**
-  - `GET /products/search?q={{searchQuery}}`
-- **Pagination test**
-  - `GET /products?limit=10&skip=0`
-- **Select specific fields**
-  - `GET /products?limit=5&select=title,price`
+### 2️⃣ Product APIs
+Covered the most common product-related scenarios such as:
+- Fetching all products
+- Fetching product by ID
+- Searching products by keyword
+- Pagination validation
+- Field selection validation
 
-### 3) Auth APIs
-- **Login user and save tokens**
-  - `POST /auth/login`
-- **Get current auth user**
-  - `GET /auth/me`
-- **Refresh token**
-  - `POST /auth/refresh`
+### 3️⃣ Authentication APIs
+Validated login and token-based workflow:
+- Login with valid credentials
+- Save `accessToken` and `refreshToken`
+- Call authenticated endpoint `/auth/me`
+- Refresh token using `/auth/refresh`
 
-### 4) Negative Testing
-- **Invalid product ID**
-  - `GET /productss/999999`
-- **Invalid login**
-  - `POST /auth/login`
-- **Auth behavior check without bearer token**
-  - `GET /auth/me`
+### 4️⃣ Negative Testing
+Checked how the API behaves with invalid requests, such as:
+- Invalid product endpoint
+- Invalid login credentials
+- Auth behavior without explicitly passing a bearer token
 
-### 5) Performance Testing
-- **Delayed products response check**
-  - `GET /products?delay=1000`
-- **Normal products response check**
-  - `GET /products`
+### 5️⃣ Performance Testing
+Verified basic response-time expectations for:
+- Normal response flow
+- Delayed response flow using query delay parameter
 
 ---
 
 ## ✅ Validations Performed
 
 - Status code validation
-- Response body validation
-- Key/value existence validation
-- Pagination validation
+- JSON body validation
+- Required field validation
+- Pagination key validation
 - Token extraction and reuse
-- Environment variable handling
-- Negative scenario validation
+- Header validation
 - Response time validation
-- Content-Type validation
+- Unauthorized / invalid request validation
 
 ---
 
-## 🔐 Environment Variables
+## 🔁 Environment Variables Used
 
 ```text
 baseURL = https://dummyjson.com
@@ -133,19 +154,12 @@ userId =
 
 ---
 
-## ⚡ Sample Postman Test Scripts
+## 🧾 Sample Test Scripts
 
-### Status Code Check
+### Status Code Validation
 ```javascript
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
-});
-```
-
-### Response Time Check
-```javascript
-pm.test("Response time is below 3000 ms", function () {
-    pm.expect(pm.response.responseTime).to.be.below(3000);
 });
 ```
 
@@ -156,64 +170,7 @@ pm.environment.set("accessToken", res.accessToken);
 pm.environment.set("refreshToken", res.refreshToken);
 ```
 
----
-
-## 🏃 Newman CLI Execution
-
-### Install Newman
-```bash
-npm install -g newman
-npm install -g newman-reporter-htmlextra
-```
-
-### Run Collection
-```bash
-newman run "DummyJSON Product API Testing.postman_collection.json" -e "DummyJSON Env.postman_environment.json" -r cli
-```
-
-### Generate Dashboard-style HTML Report
-```bash
-newman run "DummyJSON Product API Testing.postman_collection.json" -e "DummyJSON Env.postman_environment.json" -r "cli,htmlextra" --reporter-htmlextra-export "newman-report.html"
-```
-
----
-
-## 📊 Newman CLI Result
-
-- ✅ Collection executed successfully
-- ✅ All requests completed
-- ✅ All test cases passed
-- ✅ HTML execution report generated successfully
-
----
-
-## 🧠 Challenges Faced & Fixes
-
-### 1) Invalid credentials with variables
-**Issue:** Login worked with hardcoded values but failed with `{{username}}` and `{{password}}`  
-**Fix:** Corrected environment variable names and values.
-
-### 2) `/auth/me` returned 200 without bearer token
-**Issue:** Expected 401/403 but received 200  
-**Fix:** Identified cookie-based session behavior after login and updated the negative test accordingly.
-
-### 3) Newman failed while Postman passed
-**Issue:** Newman showed invalid URI / unresolved variables  
-**Fix:** Removed extra spaces from variable names such as `{{baseURL }}` and ensured exported environment values were correct.
-
----
-
-## 📈 Performance Testing
-
-Two requests were used to validate performance:
-
-- **Delayed products response check**
-  - `GET /products?delay=1000`
-- **Normal products response check**
-  - `GET /products`
-
-Example performance script:
-
+### Response Time Validation
 ```javascript
 pm.test("Response time is below 3000 ms", function () {
     pm.expect(pm.response.responseTime).to.be.below(3000);
@@ -222,38 +179,116 @@ pm.test("Response time is below 3000 ms", function () {
 
 ---
 
-## 📸 Suggested Screenshots
+## ▶️ How to Run in Postman
 
-Add these images to the `screenshots/` folder:
+1. Import the Postman collection file
+2. Import the environment file
+3. Select the environment
+4. Run the collection from Collection Runner
+5. Review the execution summary and passed assertions
 
+---
+
+## 💻 Run with Newman CLI
+
+### Install Newman
+```bash
+npm install -g newman
+```
+
+### Run Collection
+```bash
+newman run "DummyJSON Product API Testing.postman_collection.json" -e "DummyJSON Env.postman_environment.json" -r cli
+```
+
+### Install HTML Reporter
+```bash
+npm install -g newman-reporter-html
+```
+
+### Install HTMLEXTRA Reporter
+```bash
+npm install -g newman-reporter-htmlextra
+```
+
+### Generate Premium HTML Report
+```bash
+newman run "DummyJSON Product API Testing.postman_collection.json" -e "DummyJSON Env.postman_environment.json" -r "cli,htmlextra" --reporter-htmlextra-export "newman-report.html"
+```
+
+---
+
+## 📊 Newman CLI Result
+
+This project was successfully executed through **Newman CLI**, and an HTML report was generated for better visualization of request execution, assertions, and overall results.
+
+### Output Highlights
+- ✅ All requests executed successfully
+- ✅ Assertions passed successfully
+- ✅ CLI execution completed
+- ✅ HTML report generated
+
+---
+
+## 🖼️ Suggested Repository Assets
+
+Add these files to make the repository stronger:
+- `DummyJSON Product API Testing.postman_collection.json`
+- `DummyJSON Env.postman_environment.json`
+- `newman-report.html`
+- `README.md`
+- `screenshots/`
+
+Recommended screenshots:
 - Postman collection structure
-- All tests passed in Collection Runner
-- Newman CLI terminal result
-- HTML report dashboard
+- Collection Runner pass result
+- Newman CLI terminal output
+- HTML report preview
 
 ---
 
-## 🎯 Project Outcome
+## 🌟 Why This Project Matters
 
-This project demonstrates practical **API testing on a real hosted API** using **Postman** and **Newman**.  
-It validates functional behavior, authentication flow, negative scenarios, and performance checks in a portfolio-ready format.
+This project is stronger than a simple mock API exercise because it demonstrates:
+
+- Real API testing workflow
+- Authentication handling
+- Dynamic environment variable usage
+- Command-line test execution
+- Structured QA validation approach
+- Portfolio-ready documentation
+
+It shows practical skills that are useful for **Junior QA / SQA / API Testing roles**.
 
 ---
 
-## 💼 Resume / LinkedIn Description
+## 🧑‍💼 Resume / LinkedIn Project Description
 
 **DummyJSON Product API Testing with Postman & Newman**  
-Tested hosted REST APIs using Postman and Newman, including product validation, authentication flow, negative scenarios, environment variable handling, and performance checks.
+Tested hosted REST APIs using Postman and Newman, including product endpoint validation, authentication flow, negative scenarios, environment variable handling, and performance checks with HTML reporting.
 
 ---
 
-## 👨‍💻 Author
+## 📬 Repository Description
 
-**Your Name Here**  
-SQA / API Testing Learner
+> Real API testing project using DummyJSON, Postman, and Newman with product, auth, negative, and performance test scenarios.
 
 ---
 
-## ⭐ If you like this project
+## 🙌 Final Note
 
-Give it a star on GitHub and use it as part of your software testing portfolio.
+This project helped strengthen my understanding of:
+- REST API testing
+- Request chaining
+- Token handling
+- Negative testing
+- Performance validation
+- CLI-based automation execution
+
+If you found this repository useful, feel free to explore the collection and report files.
+
+---
+
+<div align="center">
+  <b>⭐ Built as a practical portfolio project for API Testing / QA roles</b>
+</div>
