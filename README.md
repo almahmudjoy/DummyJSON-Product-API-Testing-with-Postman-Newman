@@ -269,11 +269,6 @@ Tested hosted REST APIs using Postman and Newman, including product endpoint val
 
 ---
 
-## 📬 Repository Description
-
-> Real API testing project using DummyJSON, Postman, and Newman with product, auth, negative, and performance test scenarios.
-
----
 
 ## 🙌 Final Note
 
