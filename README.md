@@ -250,7 +250,7 @@ Screenshots:
  
 - Newman CLI terminal output
 
-<!-- <img width="558" height="562" alt="Newman CLI Report" src="https://github.com/user-attachments/assets/fabb2456-b9d4-4273-84df-ca42f5f67fc5" />. -->
+<img width="558" height="562" alt="Newman CLI Report" src="https://github.com/user-attachments/assets/fabb2456-b9d4-4273-84df-ca42f5f67fc5" />. 
 
 ---
 
