@@ -241,11 +241,16 @@ Add these files to make the repository stronger:
 
 Screenshots:
 - Postman collection structure
-  <img width="238" height="409" alt="image" src="https://github.com/user-attachments/assets/baa55663-ceef-411d-aae8-dca49c17a1e4" />
+
+ <img width="238" height="409" alt="image" src="https://github.com/user-attachments/assets/baa55663-ceef-411d-aae8-dca49c17a1e4" />
+ 
 - Collection Runner pass result
-  <img width="1325" height="299" alt="Test Cases" src="https://github.com/user-attachments/assets/0736d3f4-16e0-4b75-866c-441a66fa5513" />
+
+ <img width="1325" height="299" alt="Test Cases" src="https://github.com/user-attachments/assets/0736d3f4-16e0-4b75-866c-441a66fa5513" />
+ 
 - Newman CLI terminal output
-  <img width="558" height="562" alt="Newman CLI Report" src="https://github.com/user-attachments/assets/fabb2456-b9d4-4273-84df-ca42f5f67fc5" />
+
+<img width="558" height="562" alt="Newman CLI Report" src="https://github.com/user-attachments/assets/fabb2456-b9d4-4273-84df-ca42f5f67fc5" />
 
 ---
 
