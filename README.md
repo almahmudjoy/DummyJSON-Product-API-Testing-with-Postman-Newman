@@ -285,6 +285,13 @@ This project helped strengthen my understanding of:
 - Performance validation
 - CLI-based automation execution
 
+## 🔗 Let's Connect with Me
+
+Interested in my work? Feel free to reach out by email or on LinkedIn.
+
+- 📧 [abdullahalmahmudjoy39@gmail.com](mailto:abdullahalmahmudjoy39@gmail.com)
+- 💼 [LinkedIn Profile](https://www.linkedin.com/in/abdullah-al-mahmud-joy/)
+
 If you found this repository useful, feel free to explore the collection and report files.
 
 ---
